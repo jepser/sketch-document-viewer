@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "next": "^9.2.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "name": "sketch-document-viewer",
+  "version": "1.0.0",
+  "description": "Sketch file viewer",
+  "main": "index.js",
+  "repository": "https://github.com/jepser/sketch-document-viewer.git",
+  "author": "Jepser Bernardino <jepsersk8@gmail.com>",
+  "license": "MIT"
+}
