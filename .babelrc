@@ -3,6 +3,14 @@
     "next/babel"
   ],
   "plugins": [
-    ["styled-components"]
+    ["styled-components"],
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "@components": "./components",
+        "@lib": "./lib",
+        "@constants": "./constants"
+      }
+    }]
   ]
 }
