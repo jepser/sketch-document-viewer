@@ -12,7 +12,7 @@ const HomePage = () => {
     return null;
   }
 
-  return <DocumentLayout artboards={data.artboards} />;
+  return <DocumentLayout artboards={data.artboards} name={data.name} />;
 };
 
 export default HomePage;
