@@ -1,5 +1,5 @@
 import { useQueryArtboardsFromApi } from '@services/sketch';
-import Artboards from '@layouts/artboards';
+import DocumentLayout from '@layouts/document';
 
 const HomePage = () => {
   const { data, loading, error } = useQueryArtboardsFromApi();
@@ -12,7 +12,7 @@ const HomePage = () => {
     return null;
   }
 
-  return <Artboards artboards={data.artboards} />;
+  return <DocumentLayout artboards={data.artboards} />;
 };
 
 export default HomePage;
