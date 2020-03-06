@@ -1,15 +1,21 @@
 import App from 'next/app';
 import React from 'react';
+import { ApolloProvider } from '@apollo/react-hooks';
 import { GlobalStyles } from '@components/layout';
+import { withSketchApi } from '@services/sketch';
 
-export default class MyApp extends App {
+class SketchApp extends App {
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, apollo } = this.props;
     return (
       <>
         <GlobalStyles />
-        <Component {...pageProps} />
+        <ApolloProvider client={apollo}>
+          <Component {...pageProps} />
+        </ApolloProvider>
       </>
     );
   }
 }
+
+export default withSketchApi(SketchApp);
