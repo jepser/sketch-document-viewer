@@ -23,7 +23,7 @@ const parseArtboard = ({ files, id, name }) => {
 };
 
 const parseArtboardsFromApi = (data = {}) => {
-  if (!data.share) return null;
+  if (!data.share) return undefined;
 
   const rootData = data.share.version.document;
 
@@ -35,11 +35,26 @@ const parseArtboardsFromApi = (data = {}) => {
   };
 };
 
-export const useQueryArtboardsFromApi = id => {
-  const { data, loading, error } = useQuery(ARTBOARDS_QUERY);
+const filterArtboardById = (artboards, artboardId) => {
+  return artboards.find(artboard => artboard.id === artboardId);
+};
 
-  console.log(data);
+export const useQueryArtboardsFromApi = documentId => {
+  const { data, loading, error } = useQuery(ARTBOARDS_QUERY, {
+    variables: { documentId }
+  });
 
   const parsedData = parseArtboardsFromApi(data);
+
   return { data: parsedData, loading, error };
+};
+
+export const useQueryArtboardFromApi = ({ documentId, artboardId }) => {
+  const { data = {}, ...rest } = useQueryArtboardsFromApi(documentId);
+
+  const filterArtboard = data
+    ? filterArtboardById(data.artboards, artboardId)
+    : undefined;
+
+  return { data: filterArtboard, ...rest };
 };

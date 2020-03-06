@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 import Header, { Separator } from '@components/header';
 import { MainWrapper } from '@components/layout';

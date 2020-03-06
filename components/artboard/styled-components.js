@@ -33,3 +33,10 @@ export const Caption = styled.p`
 export const Content = styled.div`
   flex: 0 0 240px;
 `;
+
+export const Anchor = styled.a`
+  text-decoration: none;
+  :hover {
+    cursor: pointer;
+  }
+`;

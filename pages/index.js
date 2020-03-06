@@ -1,18 +1,14 @@
-import { useQueryArtboardsFromApi } from '@services/sketch';
-import DocumentLayout from '@layouts/document';
+const Home = () => null;
 
-const HomePage = () => {
-  const { data, loading, error } = useQueryArtboardsFromApi();
-
-  if (loading) {
-    return <div>loading</div>;
+Home.getInitialProps = ({ res }) => {
+  if (res) {
+    res.writeHead(301, {
+      Location: '/Y8wDM' // this is left so the application doesn't break
+    });
+    res.end();
   }
 
-  if (error) {
-    return null;
-  }
-
-  return <DocumentLayout artboards={data.artboards} name={data.name} />;
+  return {};
 };
 
-export default HomePage;
+export default Home;

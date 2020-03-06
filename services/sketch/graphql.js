@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const ARTBOARDS_QUERY = gql`
-  {
-    share(shortId: "Y8wDM") {
+  query getDocument($documentId: String!) {
+    share(shortId: $documentId) {
       shortId
       version {
         document {
