@@ -22,7 +22,7 @@ Navigator.propTypes = {
   onPrevious: PropTypes.func.isRequired,
   onNext: PropTypes.func.isRequired,
   total: PropTypes.number.isRequired,
-  current: PropTypes.current.isRequired
+  current: PropTypes.number.isRequired
 };
 
 export default Navigator;
