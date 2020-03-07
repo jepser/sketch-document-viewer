@@ -9,7 +9,7 @@ export const Root = styled.header`
 `;
 
 export const Separator = styled.div`
-  height: ${unitizedPx(2)};
+  height: ${unitizedPx(3)};
   border-left: 1px solid ${colors.lightGrey};
 `;
 
