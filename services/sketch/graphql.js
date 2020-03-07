@@ -7,6 +7,7 @@ export const ARTBOARDS_QUERY = gql`
       version {
         document {
           name
+          id
           artboards {
             entries {
               id

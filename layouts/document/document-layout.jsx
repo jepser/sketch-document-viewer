@@ -9,7 +9,7 @@ import Flex from '@components/flex';
 import Spacer from '@components/spacer';
 import Artboard from '@components/artboard';
 
-const DocumentLayout = ({ artboards, name }) => {
+const DocumentLayout = ({ artboards, name, documentId }) => {
   return (
     <>
       <Head>
@@ -29,7 +29,13 @@ const DocumentLayout = ({ artboards, name }) => {
           <Flex justify="space-between">
             {artboards.map(({ id, name, thumbnail }) => {
               return (
-                <Artboard key={id} id={id} name={name} thumbnail={thumbnail} />
+                <Artboard
+                  key={id}
+                  id={id}
+                  documentId={documentId}
+                  name={name}
+                  thumbnail={thumbnail}
+                />
               );
             })}
           </Flex>
@@ -41,7 +47,8 @@ const DocumentLayout = ({ artboards, name }) => {
 
 DocumentLayout.propTypes = {
   artboards: PropTypes.array.isRequired,
-  name: PropTypes.string
+  name: PropTypes.string,
+  documentId: PropTypes.string
 };
 
 export default DocumentLayout;

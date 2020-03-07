@@ -31,7 +31,8 @@ const parseArtboardsFromApi = (data = {}) => {
 
   return {
     artboards,
-    name: rootData.name
+    name: rootData.name,
+    id: rootData.id
   };
 };
 
@@ -50,7 +51,7 @@ export const useQueryArtboardsFromApi = documentId => {
 };
 
 export const useQueryArtboardFromApi = ({ documentId, artboardId }) => {
-  const { data = {}, ...rest } = useQueryArtboardsFromApi(documentId);
+  const { data, ...rest } = useQueryArtboardsFromApi(documentId);
 
   const filterArtboard = data
     ? filterArtboardById(data.artboards, artboardId)

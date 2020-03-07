@@ -12,7 +12,9 @@ const DocumentPage = ({ documentId }) => {
 
   const { artboards = [], name = '' } = data;
 
-  return <DocumentLayout artboards={artboards} name={name} />;
+  return (
+    <DocumentLayout artboards={artboards} name={name} documentId={documentId} />
+  );
 };
 
 DocumentPage.getInitialProps = ({ query }) => {
