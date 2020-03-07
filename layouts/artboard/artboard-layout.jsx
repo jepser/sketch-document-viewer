@@ -31,12 +31,12 @@ const ArtboardLayout = ({
       </Head>
       <MainWrapper>
         <Header>
-          <Spacer right={2}>
-            <Link href={`/${documentId}`}>
-              <img src="/close.svg" />
-            </Link>
+          <Link href={`/${documentId}`}>
+            <img src="/close.svg" />
+          </Link>
+          <Spacer left={2} right={2}>
+            <Separator />
           </Spacer>
-          <Separator />
           <ArtboardHeader
             title={name}
             current={currentIndex}

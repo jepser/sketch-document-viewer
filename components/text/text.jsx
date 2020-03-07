@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { Root } from './styled-components';
 import { colors } from '@constants';
 
-const Text = ({ children, color, variant }) => {
+const Text = ({ children, color, size, as }) => {
   return (
-    <Root color={color} variant={variant}>
+    <Root color={color} size={size} as={as}>
       {children}
     </Root>
   );
@@ -13,7 +13,8 @@ const Text = ({ children, color, variant }) => {
 Text.propTypes = {
   children: PropTypes.node,
   color: PropTypes.oneOf(Object.values(colors)),
-  variant: PropTypes.string
+  size: PropTypes.number,
+  as: PropTypes.node
 };
 
 export default Text;

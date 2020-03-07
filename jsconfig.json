@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
     "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
     "paths": {
       "@components/*": ["./components/*"],
       "@lib/*": ["./lib/*"],
