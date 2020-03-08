@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 import Spacer from '@components/spacer';
 import Flex from '@components/flex';
+import ArtboardImage from '@components/artboard-image';
 
 import { Root, Image, Container } from './styled-components';
 
@@ -24,7 +25,7 @@ export const ArtboardViewer = ({ files = [], name = '' }) => {
   return (
     <Spacer top={3} bottom={3} left={3} right={3} as={Root}>
       <Flex justify="center" align="center" as={Container}>
-        <Image src={mainImage.url} srcSet={imageSources} alt={name} />
+        <ArtboardImage src={mainImage.url} srcSet={imageSources} alt={name} />
       </Flex>
     </Spacer>
   );

@@ -12,6 +12,7 @@ export default url =>
           fetch,
           uri: url
         }),
+        ssrMode: !process.browser,
         cache: new InMemoryCache().restore(initialState || {})
       })
   );

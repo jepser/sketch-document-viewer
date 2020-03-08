@@ -4,7 +4,7 @@ import Flex from '@components/flex';
 import Text from '@components/text';
 import Navigator from '@components/navigator';
 
-import { Root } from './styled-components';
+import { Root, Title } from './styled-components';
 
 const ArtboardHeader = ({ title, current, total, onNext, onPrevious }) => {
   return (
@@ -15,7 +15,9 @@ const ArtboardHeader = ({ title, current, total, onNext, onPrevious }) => {
         onNext={onNext}
         onPrevious={onPrevious}
       />
-      <Text>{title}</Text>
+      <Title>
+        <Text>{title}</Text>
+      </Title>
       <div />
     </Flex>
   );
