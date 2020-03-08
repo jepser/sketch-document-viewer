@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import { useQueryArtboardsFromApi } from '@services/sketch';
 import ArtboardLayout from '@layouts/artboard';
+import Text from '@components/text';
 
 const ArtboardPage = ({ artboardId, documentId }) => {
   const { data = {}, loading, error } = useQueryArtboardsFromApi(documentId);
 
   if (error) {
-    return null;
+    return <Text>Ups... something went wrong 😅</Text>;
   }
 
   const { artboards = [] } = data;
