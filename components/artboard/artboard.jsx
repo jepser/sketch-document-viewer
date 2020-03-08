@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
+
 import Flex from '@components/flex';
+import Spacer from '@components/spacer';
+
 import {
   Caption,
   ImageWrap,
@@ -9,22 +13,20 @@ import {
   Content,
   Anchor
 } from './styled-components';
-import Spacer from '@components/spacer';
-import Link from 'next/link';
 
 const Artboard = ({ id, name, thumbnail, documentId }) => {
   return (
     <Spacer as={Content} right={3} left={3} bottom={3}>
-      <Link href={`/${documentId}/artboard/${id}`}>
+      <Link data-qa="artboard-link" href={`/${documentId}/artboard/${id}`}>
         <Anchor>
           <Root>
             <ImageWrap>
               <Flex direction="column">
-                <Image src={thumbnail} />
+                <Image data-qa="artboard-image" src={thumbnail} alt={name} />
               </Flex>
             </ImageWrap>
             <Spacer top={2}>
-              <Caption>{name}</Caption>
+              <Caption data-qa="artboard-name">{name}</Caption>
             </Spacer>
           </Root>
         </Anchor>

@@ -16,7 +16,7 @@ const ArtboardHeader = ({ title, current, total, onNext, onPrevious }) => {
         onPrevious={onPrevious}
       />
       <Title>
-        <Text>{title}</Text>
+        <Text data-qa="artboard-header-title">{title}</Text>
       </Title>
       <div />
     </Flex>
