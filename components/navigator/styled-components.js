@@ -6,6 +6,9 @@ export const Button = styled.button`
   display: block;
   padding: 0;
   margin: 0;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const Image = styled.img`

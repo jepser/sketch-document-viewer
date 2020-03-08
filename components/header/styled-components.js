@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { unitizedPx } from '@lib/layout-helpers';
-import { colors } from '@constants';
+import { colors, HEADER_HEIGHT } from '@constants';
 
 export const Root = styled.header`
   overflow: hidden;
@@ -16,4 +16,5 @@ export const Separator = styled.div`
 export const Content = styled.div`
   display: flex;
   align-items: center;
+  height: ${HEADER_HEIGHT}px;
 `;

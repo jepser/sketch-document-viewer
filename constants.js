@@ -5,3 +5,5 @@ export const colors = {
   softGrey: '#aaa',
   midGrey: '#333'
 };
+
+export const HEADER_HEIGHT = 24;

@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import Router from 'next/router';
 
 import Header, { Separator } from '@components/header';
 import { MainWrapper } from '@components/layout';
@@ -8,6 +9,27 @@ import Text from '@components/text';
 import Flex from '@components/flex';
 import Spacer from '@components/spacer';
 import ArtboardHeader from '@components/arboard-header';
+import ArtboardViewer from '@components/artboard-viewer';
+
+const getPreviousArtboard = (collection, currentId) => {
+  const currentIndex = collection.indexOf(currentId);
+
+  if (currentIndex > 0) {
+    return collection[currentIndex - 1];
+  }
+
+  return collection[0];
+};
+
+const getNextArtboard = (collection, currentId) => {
+  const currentIndex = collection.indexOf(currentId);
+
+  if (currentIndex < collection.length) {
+    return collection[currentIndex + 1];
+  }
+
+  return collection[collection.length - 1];
+};
 
 const ArtboardLayout = ({
   files = [],
@@ -16,13 +38,15 @@ const ArtboardLayout = ({
   collection = [],
   documentId
 }) => {
-  const currentIndex = collection.indexOf(id);
+  const currentIndex = collection.indexOf(id) + 1;
   const handlePrevious = () => {
-    console.log('previous');
+    const previousItem = getPreviousArtboard(collection, id);
+    Router.push(`/${documentId}/artboard/${previousItem}`);
   };
 
   const handleNext = () => {
-    console.log('thank you next');
+    const nextItem = getNextArtboard(collection, id);
+    Router.push(`/${documentId}/artboard/${nextItem}`);
   };
   return (
     <>
@@ -45,9 +69,7 @@ const ArtboardLayout = ({
             onNext={handleNext}
           />
         </Header>
-        <Spacer top={3} bottom={3}>
-          asdfasdf
-        </Spacer>
+        <ArtboardViewer files={files} name={name} />
       </MainWrapper>
     </>
   );
