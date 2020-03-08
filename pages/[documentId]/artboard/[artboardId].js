@@ -17,8 +17,6 @@ const ArtboardPage = ({ artboardId, documentId }) => {
 
   const collection = artboards ? artboards.map(artboard => artboard.id) : [];
 
-  console.log({ artboards, currentArtboard });
-
   return (
     <ArtboardLayout
       {...currentArtboard}

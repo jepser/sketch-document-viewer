@@ -15,8 +15,6 @@ const getImageSrcSet = files => {
 };
 
 export const ArtboardViewer = ({ files = [], name = '' }) => {
-  console.log({ files });
-
   const mainImage = files[0];
   const imageSources = getImageSrcSet(files);
 
