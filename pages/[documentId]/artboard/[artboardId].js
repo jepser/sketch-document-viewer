@@ -1,8 +1,5 @@
 import PropTypes from 'prop-types';
-import {
-  useQueryArtboardFromApi,
-  useQueryArtboardsFromApi
-} from '@services/sketch';
+import { useQueryArtboardsFromApi } from '@services/sketch';
 import ArtboardLayout from '@layouts/artboard';
 
 const ArtboardPage = ({ artboardId, documentId }) => {
