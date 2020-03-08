@@ -12,8 +12,11 @@ const ArtboardImage = ({ src, alt, srcSet }) => {
 
   return (
     <>
-      {!loaded && <Loading src="/loading.svg" />}
+      {!loaded && (
+        <Loading data-qa="artboard-image-loading" src="/loading.svg" />
+      )}
       <Image
+        data-qa="artboard-image"
         hidden={!loaded}
         onLoad={handleOnLoad}
         src={src}

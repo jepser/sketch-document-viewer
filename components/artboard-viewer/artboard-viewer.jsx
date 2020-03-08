@@ -5,14 +5,7 @@ import Flex from '@components/flex';
 import ArtboardImage from '@components/artboard-image';
 
 import { Root, Image, Container } from './styled-components';
-
-const getImageSrcSet = files => {
-  return files
-    .reduce((images, image) => {
-      return [...images, `${image.url} ${image.width}`];
-    }, [])
-    .join(',');
-};
+import { getImageSrcSet } from './utils';
 
 export const ArtboardViewer = ({ files = [], name = '' }) => {
   const mainImage = files[0];

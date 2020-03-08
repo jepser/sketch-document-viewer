@@ -10,15 +10,20 @@ import { Button, Image } from './styled-components';
 const Navigator = ({ onPrevious, onNext, total, current }) => {
   return (
     <Flex align="center">
-      <Button onClick={onPrevious}>
+      <Button onClick={onPrevious} data-qa="navigator-previous-button">
         <Image src="/arrow-left.svg" alt="previous" />
       </Button>
       <Spacer left={1} right={1}>
-        <Text color={colors.softGrey} size={12} as="p">
+        <Text
+          color={colors.softGrey}
+          size={12}
+          as="p"
+          data-qa="navigator-counter"
+        >
           {current} / {total}
         </Text>
       </Spacer>
-      <Button onClick={onNext}>
+      <Button onClick={onNext} data-qa="navigator-next-button">
         <Image src="/arrow-right.svg" alt="next" />
       </Button>
     </Flex>
