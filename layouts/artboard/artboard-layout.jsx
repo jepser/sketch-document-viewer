@@ -18,7 +18,7 @@ const getPreviousArtboard = (collection, currentId) => {
     return collection[currentIndex - 1];
   }
 
-  return collection[0];
+  return undefined;
 };
 
 const getNextArtboard = (collection, currentId) => {
@@ -28,7 +28,7 @@ const getNextArtboard = (collection, currentId) => {
     return collection[currentIndex + 1];
   }
 
-  return collection[collection.length - 1];
+  return undefined;
 };
 
 const ArtboardLayout = ({
@@ -41,11 +41,15 @@ const ArtboardLayout = ({
   const currentIndex = collection.indexOf(id) + 1;
   const handlePrevious = () => {
     const previousItem = getPreviousArtboard(collection, id);
+    console.log(previousItem);
+    if (!previousItem) return;
+
     Router.push(`/${documentId}/artboard/${previousItem}`);
   };
 
   const handleNext = () => {
     const nextItem = getNextArtboard(collection, id);
+    if (!nextItem) return;
     Router.push(`/${documentId}/artboard/${nextItem}`);
   };
   return (
