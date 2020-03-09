@@ -10,26 +10,7 @@ import Flex from '@components/flex';
 import Spacer from '@components/spacer';
 import ArtboardHeader from '@components/arboard-header';
 import ArtboardViewer from '@components/artboard-viewer';
-
-const getPreviousArtboard = (collection, currentId) => {
-  const currentIndex = collection.indexOf(currentId);
-
-  if (currentIndex > 0) {
-    return collection[currentIndex - 1];
-  }
-
-  return undefined;
-};
-
-const getNextArtboard = (collection, currentId) => {
-  const currentIndex = collection.indexOf(currentId);
-
-  if (currentIndex < collection.length) {
-    return collection[currentIndex + 1];
-  }
-
-  return undefined;
-};
+import { getPreviousArtboard, getNextArtboard } from './utils';
 
 const ArtboardLayout = ({
   files = [],
@@ -41,7 +22,6 @@ const ArtboardLayout = ({
   const currentIndex = collection.indexOf(id) + 1;
   const handlePrevious = () => {
     const previousItem = getPreviousArtboard(collection, id);
-    console.log(previousItem);
     if (!previousItem) return;
 
     Router.push(`/${documentId}/artboard/${previousItem}`);
