@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 
 import Header, { Separator } from '@components/header';
 import { MainWrapper } from '@components/layout';
@@ -19,19 +19,33 @@ const ArtboardLayout = ({
   collection = [],
   documentId
 }) => {
+  const router = useRouter();
   const currentIndex = collection.indexOf(id) + 1;
-  const handlePrevious = () => {
+  const handlePrevious = event => {
+    event.preventDefault();
     const previousItem = getPreviousArtboard(collection, id);
+
     if (!previousItem) return;
 
-    Router.push(`/${documentId}/artboard/${previousItem}`);
+    router.push(
+      `/[documentId]/artboard/[artboardId]`,
+      `/${documentId}/artboard/${previousItem}`
+    );
   };
 
-  const handleNext = () => {
+  const handleNext = event => {
+    event.preventDefault();
     const nextItem = getNextArtboard(collection, id);
     if (!nextItem) return;
-    Router.push(`/${documentId}/artboard/${nextItem}`);
+
+    router.push(
+      `/[documentId]/artboard/[artboardId]`,
+      `/${documentId}/artboard/${nextItem}`
+    );
   };
+
+  const previousItem = getPreviousArtboard(collection, id);
+  const nextItem = getNextArtboard(collection, id);
   return (
     <>
       <Head>
@@ -39,8 +53,10 @@ const ArtboardLayout = ({
       </Head>
       <MainWrapper>
         <Header>
-          <Link href={`/${documentId}`}>
-            <img src="/close.svg" />
+          <Link href={`/[documentId]`} as={`/${documentId}`}>
+            <a>
+              <img src="/close.svg" />
+            </a>
           </Link>
           <Spacer left={2} right={2}>
             <Separator />
@@ -51,6 +67,8 @@ const ArtboardLayout = ({
             total={collection.length}
             onPrevious={handlePrevious}
             onNext={handleNext}
+            previousItem={previousItem}
+            nextItem={nextItem}
           />
         </Header>
         <ArtboardViewer files={files} name={name} />

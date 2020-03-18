@@ -17,8 +17,11 @@ import {
 const Artboard = ({ id, name, thumbnail, documentId }) => {
   return (
     <Spacer as={Content} right={3} left={3} bottom={3}>
-      <Link data-qa="artboard-link" href={`/${documentId}/artboard/${id}`}>
-        <Anchor>
+      <Link
+        href={`/[documentId]/artboard/[artboardId]`}
+        as={`/${documentId}/artboard/${id}`}
+      >
+        <Anchor data-qa="artboard-link">
           <Root>
             <ImageWrap>
               <Flex direction="column">
