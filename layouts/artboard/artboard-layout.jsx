@@ -59,12 +59,6 @@ const ArtboardLayout = ({
   );
 };
 
-ArtboardLayout.getInitialProps = ({ query }) => {
-  return {
-    artboardId: query.artboardId
-  };
-};
-
 ArtboardLayout.propTypes = {
   files: PropTypes.array,
   documentId: PropTypes.string,
