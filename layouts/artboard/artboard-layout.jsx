@@ -44,8 +44,6 @@ const ArtboardLayout = ({
     );
   };
 
-  const previousItem = getPreviousArtboard(collection, id);
-  const nextItem = getNextArtboard(collection, id);
   return (
     <>
       <Head>
@@ -67,8 +65,6 @@ const ArtboardLayout = ({
             total={collection.length}
             onPrevious={handlePrevious}
             onNext={handleNext}
-            previousItem={previousItem}
-            nextItem={nextItem}
           />
         </Header>
         <ArtboardViewer files={files} name={name} />
